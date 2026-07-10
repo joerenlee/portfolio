@@ -2,50 +2,117 @@
 
 /*
   Solid palette — NO opacity anywhere.
-  Each grey is the pre-computed result of blending ink (#0e0e0e) over
-  paper (#f5f4f1) at the old alpha value, so it reads identically but
-  is a real, flat colour.
+  Every grey is a pre-computed blend of ink over paper, so it reads like
+  the old alpha values but is a real, flat colour.
+
+  Theming: light values live on :root, dark overrides on
+  html[data-theme="dark"]. Components only ever use the Tailwind tokens
+  (ink-*, line-*, paper, canvas), which resolve through these variables.
 */
+:root {
+  --canvas: #e7e5e0;
+  --paper: #f5f4f1;
+  --paper-hover: #ecebe6;
+
+  --ink: #0e0e0e;
+  --ink-80: #3c3c3b;
+  --ink-70: #535352;
+  --ink-60: #6a6a69;
+  --ink-55: #767674;
+  --ink-50: #818180;
+  --ink-45: #8d8d8b;
+  --ink-40: #989896;
+
+  --line: #0e0e0e;
+  --line-30: #b4b4b0;
+  --line-18: #cbcbc8;
+  --line-15: #d2d2cf;
+  --line-12: #d7d7d3;
+  --line-10: #dededa;
+
+  --selection-bg: #121314;
+  --selection-fg: #ffffff;
+}
+
+html[data-theme="dark"] {
+  --canvas: #131312;
+  --paper: #1a1a18;
+  --paper-hover: #232321;
+
+  --ink: #eceae5;
+  --ink-80: #c9c7c2;
+  --ink-70: #adaba6;
+  --ink-60: #918f8b;
+  --ink-55: #84827e;
+  --ink-50: #767571;
+  --ink-45: #686764;
+  --ink-40: #5a5957;
+
+  --line: #eceae5;
+  --line-30: #4f4e4a;
+  --line-18: #3c3b38;
+  --line-15: #383734;
+  --line-12: #333230;
+  --line-10: #2f2e2c;
+
+  --selection-bg: #eceae5;
+  --selection-fg: #121314;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-paper: var(--paper);
+  --color-paper-hover: var(--paper-hover);
+
+  --color-ink: var(--ink);
+  --color-ink-80: var(--ink-80);
+  --color-ink-70: var(--ink-70);
+  --color-ink-60: var(--ink-60);
+  --color-ink-55: var(--ink-55);
+  --color-ink-50: var(--ink-50);
+  --color-ink-45: var(--ink-45);
+  --color-ink-40: var(--ink-40);
+
+  --color-line: var(--line);
+  --color-line-30: var(--line-30);
+  --color-line-18: var(--line-18);
+  --color-line-15: var(--line-15);
+  --color-line-12: var(--line-12);
+  --color-line-10: var(--line-10);
+}
+
 @theme {
   --font-mono: var(--font-plex), ui-monospace, "SFMono-Regular", Menlo, monospace;
-
-  --color-canvas: #e7e5e0;
-  --color-paper: #f5f4f1;
-  --color-paper-hover: #ecebe6;
-
-  --color-ink: #0e0e0e;
-  --color-ink-80: #3c3c3b; /* was opacity .8  */
-  --color-ink-70: #535352; /* was opacity .7  */
-  --color-ink-60: #6a6a69; /* was opacity .6  */
-  --color-ink-55: #767674; /* was opacity .55 */
-  --color-ink-50: #818180; /* was opacity .5  */
-  --color-ink-45: #8d8d8b; /* was opacity .45 */
-  --color-ink-40: #989896; /* was opacity .4  */
-
-  --color-line: #0e0e0e;
-  --color-line-30: #b4b4b0; /* strong hairline */
-  --color-line-18: #cbcbc8; /* was rgba .18 */
-  --color-line-15: #d2d2cf; /* was rgba .15 */
-  --color-line-12: #d7d7d3; /* was rgba .12 */
-  --color-line-10: #dededa; /* was rgba .10 */
 }
 
 @layer base {
   html {
-    background: var(--color-canvas);
+    background: var(--canvas);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  /* anchored sections land below the sticky nav bar */
+  [id] {
+    scroll-margin-top: 76px;
   }
   body {
-    background: var(--color-canvas);
-    color: var(--color-ink);
+    background: var(--canvas);
+    color: var(--ink);
     -webkit-font-smoothing: antialiased;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
   }
   ::selection {
-    background: #121314;
-    color: #ffffff;
+    background: var(--selection-bg);
+    color: var(--selection-fg);
   }
   ::-moz-selection {
-    background: #121314;
-    color: #ffffff;
+    background: var(--selection-bg);
+    color: var(--selection-fg);
   }
 }
 
@@ -57,5 +124,15 @@
   50%,
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
   }
 }

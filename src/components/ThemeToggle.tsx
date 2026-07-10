@@ -32,8 +32,8 @@ function isDark(mode: Mode): boolean {
   return window.matchMedia("(prefers-color-scheme:dark)").matches;
 }
 
-function applyFilter(mode: Mode) {
-  document.documentElement.style.filter = isDark(mode) ? "invert(1)" : "";
+function applyTheme(mode: Mode) {
+  document.documentElement.setAttribute("data-theme", isDark(mode) ? "dark" : "light");
 }
 
 export default function ThemeToggle() {
@@ -45,8 +45,6 @@ export default function ThemeToggle() {
       stored = (localStorage.getItem("jl-theme") as Mode) || "system";
     } catch {}
     setMode(stored);
-    // Animate only user-driven changes, not the pre-paint value.
-    document.documentElement.style.transition = "filter .45s ease";
 
     const mq = window.matchMedia("(prefers-color-scheme:dark)");
     const onChange = () => {
@@ -54,7 +52,7 @@ export default function ThemeToggle() {
       try {
         current = (localStorage.getItem("jl-theme") as Mode) || "system";
       } catch {}
-      if (current === "system") applyFilter("system");
+      if (current === "system") applyTheme("system");
     };
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
@@ -65,7 +63,7 @@ export default function ThemeToggle() {
     try {
       localStorage.setItem("jl-theme", next);
     } catch {}
-    applyFilter(next);
+    applyTheme(next);
   }
 
   return (

@@ -13,6 +13,8 @@ export interface Project {
   year: string;
   name: string;
   url: string;
+  /** Source repository URL — the "repository →" link renders only when set. */
+  repo?: string;
   desc: string;
   tags: string[];
 }
@@ -74,6 +76,7 @@ export const projects: Project[] = [
     year: "2026",
     name: "Go-El Inventory & Sales Management System",
     url: "https://go-el-inventory.onrender.com/",
+    repo: "https://github.com/joerenlee/go-el-inventory",
     desc: "Inventory and sales management system for Go-El: tracks stock, records sales, and gives the team a single operational dashboard.",
     tags: [
       "React 18",
@@ -95,6 +98,7 @@ export const projects: Project[] = [
     year: "2021",
     name: "JetTrack",
     url: "https://capstone3-client-murex.vercel.app/login",
+    repo: "https://gitlab.com/johnlawrenceco/capstone3-client",
     desc: "A full MERN budget and expense tracker web application with authentication and CRUD functionality with Graphs and Nodemailer, deployed on Vercel.",
     tags: [
       "React.js",
@@ -116,6 +120,7 @@ export const projects: Project[] = [
     year: "2021",
     name: "CodeMuster Bookings",
     url: "https://joerenlee.gitlab.io/capstone2-lee/",
+    repo: "https://gitlab.com/joerenlee/capstone2-lee",
     desc: "Course booking web application with complete authentication and CRUD functionality built and deployed on GitLab Pages.",
     tags: [
       "MongoDB",

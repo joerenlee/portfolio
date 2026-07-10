@@ -3,7 +3,7 @@ import { hero, socials } from "@/data/portfolio";
 
 export default function Hero() {
   return (
-    <header className="px-5 pb-14 pt-16 sm:px-7">
+    <header className="relative flex min-h-[calc(100svh-68px)] flex-col items-center justify-center border-b border-line-15 px-5 py-14 text-center sm:px-7">
       <div className="mb-5 text-xs text-ink-55">{hero.prompt}</div>
 
       <h1 className="mb-5 text-[clamp(30px,6vw,64px)] font-bold leading-[1.05] tracking-[-0.02em]">
@@ -15,7 +15,7 @@ export default function Hero() {
         {hero.tagline}
       </p>
 
-      <div className="mt-8 flex flex-wrap gap-3 text-xs">
+      <div className="mt-8 flex flex-wrap justify-center gap-3 text-xs">
         <a
           href="#contact"
           className="bg-ink px-4 py-2.5 text-paper transition-[opacity,transform] duration-150 hover:opacity-80 active:translate-y-px active:opacity-100"
@@ -33,7 +33,7 @@ export default function Hero() {
         </a>
       </div>
 
-      <div className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] text-ink-60">
+      <div className="mt-7 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[11px] text-ink-60">
         {socials.map((social, i) => (
           <span key={social.label} className="flex items-center gap-x-3">
             {i > 0 && (
@@ -52,6 +52,18 @@ export default function Hero() {
           </span>
         ))}
       </div>
+
+      {/* scroll hint — invites the visitor below the fold */}
+      <a
+        href="#about"
+        aria-label="Scroll to about section"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[11px] text-ink-45 transition-colors duration-200 hover:text-ink"
+      >
+        <span className="flex flex-col items-center gap-1 motion-safe:[animation:drift_2s_ease-in-out_infinite]">
+          <span>scroll</span>
+          <span aria-hidden>↓</span>
+        </span>
+      </a>
     </header>
   );
 }
