@@ -28,16 +28,16 @@ export default function Skills() {
             {certs.map((cert, i) => (
               <div
                 key={i}
-                className="flex items-baseline justify-between gap-3 rounded-[4px] border border-line-18 bg-paper px-4 py-3 text-[13px] transition-colors duration-200 hover:border-ink"
+                className="flex items-center justify-between gap-5 rounded-[4px] border border-line-18 bg-paper px-4 py-3 text-[13px] transition-colors duration-200 hover:border-ink"
               >
                 <span>{cert.name}</span>
                 <a
                   href={cert.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-ink-50 text-[11px] hover:text-ink"
+                  className="whitespace-nowrap text-ink-50 text-[11px] hover:text-ink"
                 >
-                  View Certificate
+                  Link
                 </a>
               </div>
             ))}
