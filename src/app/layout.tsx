@@ -14,7 +14,8 @@ const description =
   "Joeren Lee — Full Stack Developer / AI Engineer. 4 years shipping production web applications, end to end: frontend, backend, database, and deployment.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://joerenlee.github.io"),
+  // Project site lives under /portfolio; resolves relative OG/twitter/icon URLs.
+  metadataBase: new URL("https://joerenlee.github.io/portfolio"),
   title,
   description,
   openGraph: {

@@ -1,5 +1,5 @@
-import Image from "next/image";
 import type { Project } from "@/data/portfolio";
+import { asset } from "@/lib/basePath";
 import Chip from "./Chip";
 
 export default function ProjectCard({ project }: { project: Project }) {
@@ -22,13 +22,12 @@ export default function ProjectCard({ project }: { project: Project }) {
       {/* screenshot */}
       <div className="relative aspect-[16/10] border-b border-line-15 bg-line-10">
         {project.image ? (
-          <Image
-            src={project.image}
+          // eslint-disable-next-line @next/next/no-img-element -- plain <img> so we control the base-path prefix (next/image doesn't prefix unoptimized src)
+          <img
+            src={asset(project.image)}
             alt={`${project.name} screenshot`}
-            fill
-            unoptimized
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover"
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         ) : (
           <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-ink-40">

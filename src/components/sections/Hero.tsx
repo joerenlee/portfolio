@@ -1,5 +1,6 @@
 import Cursor from "@/components/Cursor";
 import { hero, socials } from "@/data/portfolio";
+import { asset } from "@/lib/basePath";
 
 export default function Hero() {
   return (
@@ -27,7 +28,7 @@ export default function Hero() {
           get in touch →
         </a>
         <a
-          href={hero.cv}
+          href={asset(hero.cv)}
           download
           target="_blank"
           rel="noopener noreferrer"
