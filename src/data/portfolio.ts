@@ -33,7 +33,7 @@ export interface SkillGroup {
 
 export interface Cert {
   name: string;
-  year: string;
+  url: string;
 }
 
 export const nav: NavItem[] = [
@@ -218,6 +218,14 @@ export const skills: SkillGroup[] = [
 export const certs: Cert[] = [
   {
     name: "Computer Programming Certification — Zuitt Coding Bootcamp",
-    year: "2021",
+    url: "https://www.linkedin.com/in/joeren-lee-7523371bb/overlay/Education/702270912/treasury/?profileId=ACoAADMg-m4BPpg34hXXyq3_ggjttLNwXAzSLPQ"
   },
+  {
+    name: "Testdome — SQL Certification",
+    url: "https://www.testdome.com/certificates/20b2ee8aa19447758b0c2fd7f54dfbf7"
+  },
+  {
+    name: "Testdome — Javascript Certification",
+    url: "https://www.testdome.com/certificates/3e6035d60c614cc9bc2532c34827f242"
+  }
 ];

@@ -31,7 +31,14 @@ export default function Skills() {
                 className="flex items-baseline justify-between gap-3 rounded-[4px] border border-line-18 bg-paper px-4 py-3 text-[13px] transition-colors duration-200 hover:border-ink"
               >
                 <span>{cert.name}</span>
-                <span className="whitespace-nowrap text-ink-50">{cert.year}</span>
+                <a
+                  href={cert.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-ink-50 text-[11px] hover:text-ink"
+                >
+                  View Certificate
+                </a>
               </div>
             ))}
           </div>
