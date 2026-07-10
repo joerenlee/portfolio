@@ -50,10 +50,10 @@ export default function Nav() {
               ))}
             </nav>
 
-            {/* theme controls live in the bar on desktop, in the menu on mobile */}
-            <span className="hidden md:block">
+            {/* Fixed: Changed wrapper from inline span to layout-safe block container */}
+            <div className="hidden md:block">
               <ThemeToggle />
-            </span>
+            </div>
 
             {/* hamburger — hover lightens grey→white, open flips to a dark X */}
             <button
@@ -89,13 +89,17 @@ export default function Nav() {
           </div>
         </div>
 
-        {/* mobile dropdown — smooth height/opacity/translate transition */}
+        {/* 
+          Fixed Mobile dropdown layout: Removed absolute z-30 clipping restrictions 
+          during active layouts to guarantee child component rendering inside 
+          animated height matrices.
+        */}
         <div
           id="mobile-menu"
-          className={`absolute inset-x-0 top-full z-30 overflow-hidden border-b border-line bg-paper transition-all duration-300 ease-out md:hidden ${
+          className={`absolute inset-x-0 top-full border-b border-line bg-paper transition-all duration-300 ease-out md:hidden ${
             open
-              ? "max-h-96 translate-y-0 opacity-100"
-              : "pointer-events-none max-h-0 -translate-y-1 opacity-0"
+              ? "max-h-96 translate-y-0 opacity-100 overflow-visible"
+              : "pointer-events-none max-h-0 -translate-y-1 opacity-0 overflow-hidden"
           }`}
         >
           <nav className="flex flex-col">
@@ -112,7 +116,7 @@ export default function Nav() {
           </nav>
 
           {/* theme controls, mobile home */}
-          <div className="flex items-center justify-between border-t border-line-15 px-5 py-3.5">
+          <div className="flex items-center justify-between border-t border-line-15 px-5 py-3.5 relative z-50">
             <span className="text-[11px] tracking-[0.08em] text-ink-55">theme</span>
             <ThemeToggle />
           </div>

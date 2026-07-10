@@ -29,7 +29,7 @@ const icons: Record<Mode, React.ReactNode> = {
 function isDark(mode: Mode): boolean {
   if (mode === "dark") return true;
   if (mode === "light") return false;
-  return window.matchMedia("(prefers-color-scheme:dark)").matches;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
 }
 
 function applyTheme(mode: Mode) {
@@ -44,9 +44,10 @@ export default function ThemeToggle() {
     try {
       stored = (localStorage.getItem("jl-theme") as Mode) || "system";
     } catch {}
+    
     setMode(stored);
 
-    const mq = window.matchMedia("(prefers-color-scheme:dark)");
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
     const onChange = () => {
       let current: Mode = "system";
       try {
