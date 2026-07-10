@@ -76,7 +76,7 @@ export default function ThemeToggle() {
           aria-label={`${m} theme`}
           aria-pressed={mode === m}
           title={m.charAt(0).toUpperCase() + m.slice(1)}
-          className={`flex items-center px-[9px] py-[5px] leading-none transition-colors duration-200 ${
+          className={`flex items-center cursor-pointer px-[9px] py-[5px] leading-none transition-colors duration-200 ${
             mode === m ? "bg-ink text-paper" : "text-ink hover:bg-line-12"
           }`}
         >
