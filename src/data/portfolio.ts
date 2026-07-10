@@ -138,7 +138,7 @@ export const projects: Project[] = [
 export const experience: ExperienceItem[] = [
   {
     period: "Aug 2023 — now",
-    role: "Sales Executive / Web Developer",
+    role: "Full Stack Developer / Sales Manager",
     company: "Go-El Electrical Products Trading",
     detail:
       "Launched and managed the company's online presence: built go-elshop.com on WordPress, stood up a Shopify e-commerce store, and ran the Shopee storefront. Created an Inventory and Sales Management System to ease the pain of certain business processes.",
