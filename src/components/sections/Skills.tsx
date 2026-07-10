@@ -4,7 +4,7 @@ import { skills, certs } from "@/data/portfolio";
 
 export default function Skills() {
   return (
-    <section id="tech" className="border-b border-line-15 px-5 py-14 sm:px-7">
+    <section id="tech" className="px-5 py-14 sm:px-7">
       <div className="grid gap-10 [grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr))]">
         <div>
           <SectionLabel className="mb-5">// TECHNOLOGIES I USE</SectionLabel>

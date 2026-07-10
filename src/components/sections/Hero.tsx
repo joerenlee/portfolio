@@ -4,7 +4,7 @@ import { asset } from "@/lib/basePath";
 
 export default function Hero() {
   return (
-    <header className="border-b border-line-15 px-5 pb-16 pt-16 sm:px-7">
+    <header className="px-5 pb-16 pt-16 sm:px-7">
       <div className="mb-5 text-xs text-ink-55">{hero.prompt}</div>
 
       <h1 className="mb-4 text-[clamp(34px,7vw,72px)] font-bold leading-[1.04] tracking-[-0.02em]">
