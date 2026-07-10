@@ -1,5 +1,8 @@
 import SectionLabel from "@/components/SectionLabel";
 import Cursor from "@/components/Cursor";
+import CopyEmailButton from "@/components/CopyEmailButton";
+
+const EMAIL = "joerenlee1@gmail.com";
 
 export default function Contact() {
   return (
@@ -16,13 +19,14 @@ export default function Contact() {
         a good conversation about building things.
       </p>
 
-      <div className="mt-8">
+      <div className="mt-8 flex flex-wrap items-center gap-3">
         <a
-          href="mailto:joerenlee1@gmail.com"
+          href={`mailto:${EMAIL}`}
           className="inline-block bg-ink px-5 py-3 text-xs text-paper transition-[opacity,transform] duration-150 hover:opacity-80 active:translate-y-px active:opacity-100"
         >
           send me an email →
         </a>
+        <CopyEmailButton email={EMAIL} />
       </div>
     </section>
   );

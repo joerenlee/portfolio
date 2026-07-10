@@ -35,7 +35,6 @@ src/
     Cursor.tsx        # blinking hero cursor
     sections/
       Hero.tsx
-      About.tsx
       Work.tsx
       Experience.tsx
       Skills.tsx

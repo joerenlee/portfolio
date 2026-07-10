@@ -62,7 +62,7 @@ export default function Nav() {
               aria-controls="mobile-menu"
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
-              className={`grid h-9 w-9 place-items-center rounded-[3px] border transition-all duration-300 ease-out active:scale-95 md:hidden ${
+              className={`grid h-9 w-9 cursor-pointer place-items-center rounded-[3px] border transition-all duration-300 ease-out active:scale-95 md:hidden ${
                 open
                   ? "rotate-90 border-ink bg-ink text-paper shadow-[0_2px_10px_rgba(14,14,14,0.25)]"
                   : "border-line-18 bg-line-10 text-ink hover:border-line-30 hover:bg-paper"

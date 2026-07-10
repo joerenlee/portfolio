@@ -67,7 +67,7 @@ export default function ThemeToggle() {
   }
 
   return (
-    <div className="inline-flex items-center overflow-hidden rounded-[3px] border border-line">
+    <div className="inline-flex items-center overflow-hidden rounded-[3px] border border-line bg-paper">
       {MODES.map((m) => (
         <button
           key={m}

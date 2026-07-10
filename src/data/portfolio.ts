@@ -15,6 +15,8 @@ export interface Project {
   url: string;
   /** Source repository URL — the "repository →" link renders only when set. */
   repo?: string;
+  /** Screenshot path under /public (e.g. "/projects/go-elshop.png"); a placeholder renders until set. */
+  image?: string;
   desc: string;
   tags: string[];
 }
@@ -37,10 +39,9 @@ export interface Cert {
 }
 
 export const nav: NavItem[] = [
-  { label: "about", href: "#about" },
   { label: "work", href: "#work" },
   { label: "experience", href: "#exp" },
-  { label: "skills", href: "#skills" },
+  { label: "technologies", href: "#tech" },
   { label: "contact", href: "#contact" },
 ];
 
@@ -48,18 +49,15 @@ export const hero = {
   prompt: "$ whoami",
   name: "Joeren Lee",
   tagline: "Full Stack Developer / AI Engineer",
+  intro:
+    "I own features end to end — frontend, backend, database and deployment — and lately I build with AI. In my current role I also run sales, so I translate fluently between engineering and business outcomes.",
   cv: "/CV2026.pdf",
 };
 
 export const socials: Social[] = [
-  { label: "Linkedin", href: "https://www.linkedin.com/in/joeren-lee-7523371bb/" },
-  { label: "Github", href: "https://github.com/joerenlee" },
-  { label: "Gitlab", href: "https://gitlab.com/joerenlee" },
-];
-
-export const about: string[] = [
-  "Full Stack Developer with 4 years shipping production web applications. I own features end to end: frontend, backend, database, and deployment. I have worked in agile Scrum teams, modernized legacy systems, and lately have been building with AI.",
-  "In my current role I also run sales — so I translate fluently between technical work and business outcomes.",
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/joeren-lee-7523371bb/" },
+  { label: "GitHub", href: "https://github.com/joerenlee" },
+  { label: "GitLab", href: "https://gitlab.com/joerenlee" },
 ];
 
 export const projects: Project[] = [
@@ -68,6 +66,7 @@ export const projects: Project[] = [
     year: "2023",
     name: "Go-El Electrical Products Trading Website",
     url: "https://www.go-elshop.com/",
+    image: "/projects/go-elshop.jpg",
     desc: "Company static website for Go-El Electrical Products Trading.",
     tags: ["WordPress", "E-commerce", "Shopify"],
   },
@@ -77,6 +76,7 @@ export const projects: Project[] = [
     name: "Go-El Inventory & Sales Management System",
     url: "https://go-el-inventory.onrender.com/",
     repo: "https://github.com/joerenlee/go-el-inventory",
+    image: "/projects/go-elinventory.png",
     desc: "Inventory and sales management system for Go-El: tracks stock, records sales, and gives the team a single operational dashboard.",
     tags: [
       "React 18",
@@ -99,6 +99,7 @@ export const projects: Project[] = [
     name: "JetTrack",
     url: "https://capstone3-client-murex.vercel.app/login",
     repo: "https://gitlab.com/johnlawrenceco/capstone3-client",
+    image: "/projects/jettrack.jpg",
     desc: "A full MERN budget and expense tracker web application with authentication and CRUD functionality with Graphs and Nodemailer, deployed on Vercel.",
     tags: [
       "React.js",
@@ -121,6 +122,7 @@ export const projects: Project[] = [
     name: "CodeMuster Bookings",
     url: "https://joerenlee.gitlab.io/capstone2-lee/",
     repo: "https://gitlab.com/joerenlee/capstone2-lee",
+    image: "/projects/codemuster.jpg",
     desc: "Course booking web application with complete authentication and CRUD functionality built and deployed on GitLab Pages.",
     tags: [
       "MongoDB",
